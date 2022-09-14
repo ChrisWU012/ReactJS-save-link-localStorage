@@ -20,11 +20,10 @@ export default function LinkList(props) {
     }
 
     function addLink(e) {
-        const formData = new FormData(e.target);
-        const formProps = Object.fromEntries(formData);
+        const { tag, link } = e.target;
         setLink((preValue) => {
             let newData = [...preValue];
-            newData.push(formProps);
+            newData.push({ tag: tag.value, link: link.value });
             return newData;
         })
         e.preventDefault();
